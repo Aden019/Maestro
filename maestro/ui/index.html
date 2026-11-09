@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Maestro</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body data-listening="false">
+    <header class="masthead">
+      <div class="wordmark">
+        <h1>Maestro</h1>
+        <span>Conduct your Mac</span>
+      </div>
+      <span class="demo-tag" id="demo-tag" hidden>Demo · a pretend hand, no apps will open</span>
+      <button class="baton" id="baton" type="button" aria-pressed="false">
+        <span class="lamp" aria-hidden="true"></span>
+        <span id="baton-label">Asleep</span>
+      </button>
+    </header>
+
+    <main class="stage">
+      <section class="house" aria-label="Camera view">
+        <div class="frame-room">
+          <div class="viewfinder" id="viewfinder">
+            <img id="video" src="/video" alt="Mirrored view from your camera" />
+            <div class="grade" aria-hidden="true"></div>
+            <canvas id="overlay" aria-hidden="true"></canvas>
+            <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+            <div class="readout" aria-hidden="true"><span>Cam 01</span><span id="fps">— fps</span></div>
+            <div class="notice" id="notice" hidden>
+              <h2 id="notice-title"></h2>
+              <p id="notice-text"></p>
+              <button id="retry" type="button">Try the camera again</button>
+            </div>
+          </div>
+        </div>
+        <p class="cue" id="cue" aria-live="polite">Warming up…</p>
+      </section>
+
+      <aside class="score">
+        <h2 class="section-label">The score</h2>
+        <ol id="score-rows"></ol>
+        <div class="access" id="access" hidden>
+          <p>The air cursor needs Accessibility permission for Terminal.</p>
+          <button id="access-button" type="button">Allow Accessibility</button>
+        </div>
+        <p class="score-note">Hold a gesture until its line fills. Click an app’s name to change it.</p>
+        <datalist id="apps"></datalist>
+      </aside>
+
+      <section class="roll-panel">
+        <h2 class="section-label">Your fingers, live</h2>
+        <canvas id="roll" aria-label="A scrolling record of which fingers are raised"></canvas>
+      </section>
+
+      <section class="programme">
+        <h2 class="section-label">Programme</h2>
+        <ol id="programme"></ol>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
